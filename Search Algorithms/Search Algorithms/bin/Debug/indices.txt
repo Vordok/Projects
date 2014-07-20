@@ -1,0 +1,20 @@
+Abasolo|0
+Acambaro|1
+Celaya|2
+Cortazar|3
+Guanajuato|4
+Irapuato|5
+Leon|6
+Penjamo|7
+Salamanca|8
+Salvatierra|9
+Yuriria|10
+Silao|11
+Uriangato|12
+San Felipe|13
+San Francisco del Rincon|14
+San Luis de la Paz|15
+San Miguel de Allende|16
+Santa Cruz de Juventino Rosas|17
+Valle de Santiago|18
+Dolores Hidalgo|19

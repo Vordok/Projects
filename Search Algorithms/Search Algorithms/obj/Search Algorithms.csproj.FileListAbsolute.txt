@@ -1,0 +1,11 @@
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search_Algorithms.Form1.resources
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search_Algorithms.Properties.Resources.resources
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search Algorithms.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\bin\Debug\Search Algorithms.exe
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\bin\Debug\Search Algorithms.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search Algorithms.exe
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search Algorithms.pdb
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search_Algorithms.Form2.resources
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search_Algorithms.Form3.resources
+C:\Documents and Settings\Administrador\Mis documentos\Visual Studio 2005\Projects\Search Algorithms\Search Algorithms\obj\Debug\Search_Algorithms.Form4.resources

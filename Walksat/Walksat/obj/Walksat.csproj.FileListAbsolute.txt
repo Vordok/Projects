@@ -1,0 +1,5 @@
+C:\Users\Vordok Shimada\Documents\Inteligencia Artificial\Walksat\Walksat\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Vordok Shimada\Documents\Inteligencia Artificial\Walksat\Walksat\bin\Debug\ConsoleApplication1.exe
+C:\Users\Vordok Shimada\Documents\Inteligencia Artificial\Walksat\Walksat\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Vordok Shimada\Documents\Inteligencia Artificial\Walksat\Walksat\obj\Debug\ConsoleApplication1.exe
+C:\Users\Vordok Shimada\Documents\Inteligencia Artificial\Walksat\Walksat\obj\Debug\ConsoleApplication1.pdb
