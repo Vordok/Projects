@@ -1,0 +1,16 @@
+	// KEYFRAME 1
+
+	KeyFrame2[ 0 ].Angt1 = 0.0f;
+	KeyFrame2[ 0 ].Angt2 = 0.0f;
+	KeyFrame2[ 0 ].Angc = 0.0f;
+	KeyFrame2[ 0 ].Angbi1 = 0.0f;
+	KeyFrame2[ 0 ].Angbi2 = 0.0f;
+	KeyFrame2[ 0 ].Angbd1 = 0.0f;
+	KeyFrame2[ 0 ].Angbd2 = 0.0f;
+	KeyFrame2[ 0 ].Angpizq = 0.0f;
+	KeyFrame2[ 0 ].Angpder = 0.0f;
+	KeyFrame2[ 0 ].Angpi = 0.0f;
+	KeyFrame2[ 0 ].Xtor = 0.0f;
+	KeyFrame2[ 0 ].Ytor = 0.0f;
+	KeyFrame2[ 0 ].Ztor = 0.0f;
+

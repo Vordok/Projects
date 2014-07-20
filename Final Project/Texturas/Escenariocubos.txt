@@ -1,0 +1,2831 @@
+1. Agregar Texturas
+	
+	textura[ 0 ].LoadTGA("Texturas/platav1.tga");
+	textura[ 1 ].LoadTGA("Texturas/platav.tga");
+	textura[ 2 ].LoadTGA("Texturas/cuboverde1.tga");
+	textura[ 3 ].LoadTGA("Texturas/cuboverde.tga");
+	textura[ 4 ].LoadTGA("Texturas/cuborojo1.tga");
+	textura[ 5 ].LoadTGA("Texturas/platar.tga");
+	textura[ 6 ].LoadTGA("Texturas/platar1.tga");
+	textura[ 7 ].LoadTGA("Texturas/escav.tga");
+	textura[ 8 ].LoadTGA("Texturas/escar.tga");
+	textura[ 9 ].LoadTGA("Texturas/escav1.tga");
+	textura[ 10 ].LoadTGA("Texturas/cuborojo.tga");
+	textura[ 11 ].LoadTGA("Texturas/escar1.tga");
+	textura[ 12 ].LoadTGA("Texturas/cuboazul.tga");
+	textura[ 13 ].LoadTGA("Texturas/escaa.tga");
+	textura[ 14 ].LoadTGA("Texturas/escaa1.tga");
+	textura[ 18 ].LoadTGA( "Texturas/stewie.tga" );
+	textura[ 19 ].LoadTGA( "Texturas/suelo2.tga" );
+	textura[ 20 ].LoadTGA( "Texturas/pared.tga" );
+	textura[ 21 ].LoadTGA("Texturas/escenario.tga");
+
+2.Funcion
+
+void DibujaEscenario1()
+{
+	glEnable(GL_TEXTURE_2D);
+	//CubosRojosAbajo
+		glBindTexture(GL_TEXTURE_2D, textura[10].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 1.5f, 9.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 1.5f, 9.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 0.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 1.5f, 0.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.5f, 0.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 1.5f, 0.0f, 1.5f );
+		glEnd();
+
+	//CubosAzulesAbajo
+		glPushMatrix();
+		glTranslatef(12.0,0,0);
+		glBindTexture(GL_TEXTURE_2D, textura[12].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 1.5f, 9.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 1.5f, 9.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 0.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 1.5f, 0.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.5f, 0.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 1.5f, 0.0f, 1.5f );
+		glEnd();
+		glPopMatrix();
+
+//CubosAzulesEnmedio
+		glPushMatrix();
+		glTranslatef(-12.0,0.0,0.0);
+		glBindTexture(GL_TEXTURE_2D, textura[12].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 10.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 10.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 10.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 15.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 10.5f, 15.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 10.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 10.5f, 15.0f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glEnd();
+		glPopMatrix();
+
+	//CubosVerdesEnmedio
+		glBindTexture(GL_TEXTURE_2D, textura[3].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( 13.5f, 9.0f, 1.5f );
+		glTexCoord2f(5.0f, 2.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( -1.5f, 15.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 9.0f, -1.5f );
+		glTexCoord2f(1.0f, 2.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 2.0f); glVertex3f( -1.5f, 15.0f, 1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( -1.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glTexCoord2f(5.0f, 2.0f); glVertex3f( -1.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 9.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[2].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 15.0f, 1.5f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -1.5f, 15.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[2].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 9.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 9.0f, -1.5f );
+		glTexCoord2f(1.0f, 5.0f); glVertex3f( 13.5f, 9.0f, -1.5f );
+		glTexCoord2f(0.0f, 5.0f); glVertex3f( 13.5f, 9.0f, 1.5f );
+		glEnd();
+	//CubosVerdesAbajo
+		glBindTexture(GL_TEXTURE_2D, textura[3].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 0.0f, 1.5f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -28.5f, 0.0f, 1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( -28.5f, 3.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 3.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -28.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -28.5f, 3.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 3.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -43.5f, 3.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 3.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 0.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -43.5f, 0.0f, -1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( -43.5f, 3.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 3.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 0.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[2].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 3.0f, 1.5f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -28.5f, 3.0f, 1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( -28.5f, 3.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 3.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[2].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 0.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 0.0f, -1.5f );
+		glTexCoord2f(1.0f, 5.0f); glVertex3f( -28.5f, 0.0f, -1.5f );
+		glTexCoord2f(0.0f, 5.0f); glVertex3f( -28.5f, 0.0f, 1.5f );
+		glEnd();
+	//CubosRojosEnmedio
+		glBindTexture(GL_TEXTURE_2D, textura[10].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 10.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 10.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 10.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 15.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 10.5f, 15.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( 10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 10.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 10.5f, 15.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 10.5f, 15.0f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 15.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 15.0f, 1.5f );
+		glEnd();
+	//CubosRojosArriba
+		glBindTexture(GL_TEXTURE_2D, textura[10].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 23.0f, 1.5f );
+		glTexCoord2f(3.0f, 0.0f); glVertex3f( -34.5f, 23.0f, 1.5f );
+		glTexCoord2f(3.0f, 2.0f); glVertex3f( -34.5f, 29.0f, 1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( -43.5f, 29.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.5f, 23.0f, -1.5f );
+		glTexCoord2f(1.0f, 2.0f); glVertex3f( -34.5f, 29.0f, -1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( -34.5f, 29.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 2.0f); glVertex3f( -43.5f, 29.0f, 1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( -43.5f, 29.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(3.0f, 0.0f); glVertex3f( -43.5f, 23.0f, -1.5f );
+		glTexCoord2f(3.0f, 2.0f); glVertex3f( -43.5f, 29.0f, -1.5f );
+		glTexCoord2f(0.0f, 2.0f); glVertex3f( -34.5f, 29.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 29.0f, 1.5f );
+		glTexCoord2f(3.0f, 0.0f); glVertex3f( -34.5f, 29.0f, 1.5f );
+		glTexCoord2f(3.0f, 1.0f); glVertex3f( -34.5f, 29.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 29.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[4].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 23.0f, -1.5f );
+		glTexCoord2f(1.0f, 3.0f); glVertex3f( -34.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 3.0f); glVertex3f( -34.5f, 23.0f, 1.5f );
+		glEnd();
+	//CubosVerdesArriba
+		glBindTexture(GL_TEXTURE_2D, textura[3].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -10.5f, 23.0f, 1.5f );
+		glTexCoord2f(8.0f, 0.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(8.0f, 1.0f); glVertex3f( 13.5f, 26.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -10.5f, 26.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 26.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 26.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -10.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -10.5f, 26.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -10.5f, 26.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -10.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(8.0f, 0.0f); glVertex3f( -10.5f, 23.0f, -1.5f );
+		glTexCoord2f(8.0f, 1.0f); glVertex3f( -10.5f, 26.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 26.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[2].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -10.5f, 26.0f, 1.5f );
+		glTexCoord2f(8.0f, 0.0f); glVertex3f( 13.5f, 26.0f, 1.5f );
+		glTexCoord2f(8.0f, 1.0f); glVertex3f( 13.5f, 26.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -10.5f, 26.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBindTexture(GL_TEXTURE_2D, textura[2].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -10.5f, 23.0f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -10.5f, 23.0f, -1.5f );
+		glTexCoord2f(1.0f, 8.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 8.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glEnd();
+	//PlataformaVerdeArribaIzq
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[1].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 21.5f, 1.5f );
+		glTexCoord2f(10.0f, 0.0f); glVertex3f( -10.5f, 21.5f, 1.5f );
+		glTexCoord2f(10.0f, 1.0f); glVertex3f( -10.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -10.5f, 21.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -10.5f, 21.5f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -10.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 21.5f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -43.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 21.5f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(10.0f, 0.0f); glVertex3f( -43.5f, 21.5f, -1.5f );
+		glTexCoord2f(10.0f, 1.0f); glVertex3f( -43.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -10.5f, 21.5f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[0].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 23.0f, 1.5f );
+		glTexCoord2f(10.0f, 0.0f); glVertex3f( -10.5f, 23.0f, 1.5f );
+		glTexCoord2f(10.0f, 1.0f); glVertex3f( -10.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 21.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 21.5f, -1.5f );
+		glTexCoord2f(1.0f, 10.0f); glVertex3f( -10.5f, 21.5f, -1.5f );
+		glTexCoord2f(0.0f, 10.0f); glVertex3f( -10.5f, 21.5f, 1.5f );
+		glEnd();
+	//PlataformaVerdeArribaDer
+		glBindTexture(GL_TEXTURE_2D, textura[1].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 21.5f, 1.5f );
+		glTexCoord2f(4.0f, 0.0f); glVertex3f( 25.5f, 21.5f, 1.5f );
+		glTexCoord2f(4.0f, 1.0f); glVertex3f( 25.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 25.5f, 21.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 25.5f, 21.5f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 25.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 25.5f, 23.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 21.5f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 21.5f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(4.0f, 0.0f); glVertex3f( 13.5f, 21.5f, -1.5f );
+		glTexCoord2f(4.0f, 1.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 25.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 25.5f, 21.5f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[0].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 23.0f, 1.5f );
+		glTexCoord2f(4.0f, 0.0f); glVertex3f( 25.5f, 23.0f, 1.5f );
+		glTexCoord2f(4.0f, 1.0f); glVertex3f( 25.5f, 23.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 23.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 21.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 21.5f, -1.5f );
+		glTexCoord2f(1.0f, 4.0f); glVertex3f( 25.5f, 21.5f, -1.5f );
+		glTexCoord2f(0.0f, 4.0f); glVertex3f( 25.5f, 21.5f, 1.5f );
+		glEnd();
+	//PlataformaVerdeAbajoIzq
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[1].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 10.5f, 1.5f );
+		glTexCoord2f(7.0f, 0.0f); glVertex3f( -1.5f, 10.5f, 1.5f );
+		glTexCoord2f(7.0f, 1.0f); glVertex3f( -1.5f, 12.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 12.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -1.5f, 10.5f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -1.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -1.5f, 12.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -28.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -28.5f, 12.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 10.5f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(7.0f, 0.0f); glVertex3f( -28.5f, 10.5f, -1.5f );
+		glTexCoord2f(7.0f, 1.0f); glVertex3f( -28.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -1.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -1.5f, 10.5f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[0].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 12.0f, 1.5f );
+		glTexCoord2f(7.0f, 0.0f); glVertex3f( -1.5f, 12.0f, 1.5f );
+		glTexCoord2f(7.0f, 1.0f); glVertex3f( -1.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 12.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -28.5f, 10.5f, -1.5f );
+		glTexCoord2f(1.0f, 7.0f); glVertex3f( -1.5f, 10.5f, -1.5f );
+		glTexCoord2f(0.0f, 7.0f); glVertex3f( -1.5f, 10.5f, 1.5f );
+		glEnd();
+	//PlataformaRojaAbajoIzq
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[5].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 10.5f, 1.5f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -28.5f, 10.5f, 1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( -28.5f, 12.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 12.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -28.5f, 10.5f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -28.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 12.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -43.5f, 12.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 10.5f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -43.5f, 10.5f, -1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( -43.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -28.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -28.5f, 10.5f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[6].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 12.0f, 1.5f );
+		glTexCoord2f(5.0f, 0.0f); glVertex3f( -28.5f, 12.0f, 1.5f );
+		glTexCoord2f(5.0f, 1.0f); glVertex3f( -28.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -43.5f, 12.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -43.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -43.5f, 10.5f, -1.5f );
+		glTexCoord2f(1.0f, 5.0f); glVertex3f( -28.5f, 10.5f, -1.5f );
+		glTexCoord2f(0.0f, 5.0f); glVertex3f( -28.5f, 10.5f, 1.5f );
+		glEnd();
+	//PlataformaVerdeAbajoDer
+		glBindTexture(GL_TEXTURE_2D, textura[1].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 10.5f, 1.5f );
+		glTexCoord2f(4.0f, 0.0f); glVertex3f( 25.5f, 10.5f, 1.5f );
+		glTexCoord2f(4.0f, 1.0f); glVertex3f( 25.5f, 12.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 12.0f, 1.5f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 25.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 25.5f, 10.5f, -1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 25.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 25.5f, 12.0f, 1.5f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 13.5f, 12.0f, 1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 10.5f, -1.5f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(4.0f, 0.0f); glVertex3f( 13.5f, 10.5f, -1.5f );
+		glTexCoord2f(4.0f, 1.0f); glVertex3f( 13.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 25.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 25.5f, 10.5f, -1.5f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[0].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 12.0f, 1.5f );
+		glTexCoord2f(4.0f, 0.0f); glVertex3f( 25.5f, 12.0f, 1.5f );
+		glTexCoord2f(4.0f, 1.0f); glVertex3f( 25.5f, 12.0f, -1.5f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 13.5f, 12.0f, -1.5f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,-1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 13.5f, 10.5f, 1.5f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 13.5f, 10.5f, -1.5f );
+		glTexCoord2f(1.0f, 4.0f); glVertex3f( 25.5f, 10.5f, -1.5f );
+		glTexCoord2f(0.0f, 4.0f); glVertex3f( 25.5f, 10.5f, 1.5f );
+		glEnd();
+//EscaleraVerde
+	//verticalder
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[7].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[9].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 19.0f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 19.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 23.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 19.0f, 0.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 19.0f, 0.0f, 1.55f );
+		glEnd();
+	//verticalizq
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[7].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.1f );
+		glEnd();
+		glBindTexture(GL_TEXTURE_2D, textura[9].texID);
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.0f, 23.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 0.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 0.0f, 1.55f );
+		glEnd();
+	//Escalon1
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 1.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 1.0f, 1.55f );
+		glEnd();
+	//Escalon2
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 2.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.1f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 2.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.4f, 1.55f );
+		glEnd();
+	//Escalon3
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 4.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 4.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 3.7f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 3.7f, 1.55f );
+		glEnd();
+	//Escalon4
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 5.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 5.2f, 1.55f );
+		glEnd();
+	//Escalon5
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 7.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 7.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 6.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 6.6f, 1.55f );
+		glEnd();
+	//Escalon6
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 8.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 8.0f, 1.55f );
+		glEnd();
+	//Escalon7
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 9.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 9.4f, 1.55f );
+		glEnd();
+	//Escalon8
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 13.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 13.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 13.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 13.0f, 1.55f );
+		glEnd();
+	//Escalon9
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 14.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 14.4f, 1.55f );
+		glEnd();
+	//Escalon10
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 16.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 16.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 15.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 15.8f, 1.55f );
+		glEnd();
+	//Escalon11
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 17.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 17.2f, 1.55f );
+		glEnd();
+	//Escalon12
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 18.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.55f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 19.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 18.6f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 19.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 19.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 18.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 18.6f, 1.55f );
+		glEnd();
+	//Escalon13
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 20.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 20.0f, 1.55f );
+		glEnd();
+//EscaleraAzul
+	//verticalder
+		//Cara delantera
+		glPushMatrix();
+		glTranslatef(-39.0,0.0,0.0);
+		glBindTexture(GL_TEXTURE_2D, textura[13].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 18.6f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 19.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 19.0f, 0.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[14].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 19.0f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 19.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 23.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 19.0f, 0.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 19.0f, 0.0f, 1.55f );
+		glEnd();
+	//verticalizq
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[13].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 16.0f); glVertex3f( 16.0f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 16.0f); glVertex3f( 16.4f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 0.0f, 1.1f );
+		glEnd();
+		glBindTexture(GL_TEXTURE_2D, textura[14].texID);
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.0f, 23.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.0f, 0.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 0.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 0.0f, 1.55f );
+		glEnd();
+	//Escalon1
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 1.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 1.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 1.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 1.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 1.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 1.0f, 1.55f );
+		glEnd();
+	//Escalon2
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 2.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.1f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 2.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 2.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 2.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 2.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 2.4f, 1.55f );
+		glEnd();
+	//Escalon3
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 3.7f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 4.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 4.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 4.2f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 3.7f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 3.7f, 1.55f );
+		glEnd();
+	//Escalon4
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 5.2f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 5.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 5.6f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 5.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 5.2f, 1.55f );
+		glEnd();
+	//Escalon5
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 6.6f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 7.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 7.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 7.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 6.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 6.6f, 1.55f );
+		glEnd();
+	//Escalon6
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 8.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 8.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 8.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 8.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 8.0f, 1.55f );
+		glEnd();
+	//Escalon7
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 9.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 9.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 9.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 9.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 9.4f, 1.55f );
+		glEnd();
+	//Escalon8
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 13.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 13.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 13.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 13.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 13.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 13.0f, 1.55f );
+		glEnd();
+	//Escalon9
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 14.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 14.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 14.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 14.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 14.4f, 1.55f );
+		glEnd();
+	//Escalon10
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 15.8f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 16.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 16.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 16.2f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 15.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 15.8f, 1.55f );
+		glEnd();
+	//Escalon11
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 17.2f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 17.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 17.6f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 17.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 17.2f, 1.55f );
+		glEnd();
+	//Escalon12
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 18.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.55f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 19.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 18.6f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 19.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 19.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 19.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 18.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 18.6f, 1.55f );
+		glEnd();
+	//Escalon13
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 18.6f, 20.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 18.6f, 20.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 16.4f, 20.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( 16.4f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( 18.6f, 20.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( 18.6f, 20.0f, 1.55f );
+		glEnd();
+		glPopMatrix();
+//EscaleraRoja
+	//verticalder
+		glBindTexture(GL_TEXTURE_2D, textura[8].texID);
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.1f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -31.1f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -31.5f, 23.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.1f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.1f, 3.0f, 1.1f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -31.1f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -31.1f, 23.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -31.5f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -31.5f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 3.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 3.0f, 1.1f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -31.5f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -31.1f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.1f, 3.0f, 1.1f );
+		glEnd();
+		glBindTexture(GL_TEXTURE_2D, textura[11].texID);
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.1f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.1f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 23.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 3.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.1f, 3.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.1f, 3.0f, 1.55f );
+		glEnd();
+	//verticalizq
+		//Cara delantera
+		glBindTexture(GL_TEXTURE_2D, textura[8].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.5f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -34.1f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -34.5f, 23.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 3.0f, 1.1f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -34.1f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -34.1f, 23.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.5f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -34.5f, 23.0f, 1.55f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -34.5f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.5f, 3.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.5f, 3.0f, 1.1f );
+		glTexCoord2f(1.0f, 14.0f); glVertex3f( -34.5f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 14.0f); glVertex3f( -34.1f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 3.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBindTexture(GL_TEXTURE_2D, textura[11].texID);
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.5f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 23.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 23.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.5f, 23.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.5f, 3.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.5f, 3.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 3.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 3.0f, 1.55f );
+		glEnd();
+	//Escalon1
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 4.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 4.2f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 4.2f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 4.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 3.7f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 3.7f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 4.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 4.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 4.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 4.2f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 3.7f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 3.7f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 3.7f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 3.7f, 1.55f );
+		glEnd();
+	//Escalon2
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 5.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 5.6f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 5.6f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 5.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 5.2f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 5.2f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 5.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 5.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 5.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 5.6f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 5.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 5.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 5.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 5.2f, 1.55f );
+		glEnd();
+	//Escalon3
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 7.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 7.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 7.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 7.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 6.6f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 6.6f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 7.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 7.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 7.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 7.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 6.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 6.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 6.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 6.6f, 1.55f );
+		glEnd();
+	//Escalon4
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 8.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 8.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 8.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 8.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 8.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 8.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 8.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 8.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 8.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 8.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 8.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 8.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 8.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 8.0f, 1.55f );
+		glEnd();
+	//Escalon5
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 9.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 9.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 9.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 9.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 9.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 9.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 9.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 9.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 9.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 9.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 9.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 9.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 9.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 9.4f, 1.55f );
+		glEnd();
+	//Escalon6
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 13.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 13.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 13.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 13.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 13.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 13.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 13.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 13.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 13.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 13.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 13.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 13.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 13.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 13.0f, 1.55f );
+		glEnd();
+	//Escalon7
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 14.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 14.8f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 14.8f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 14.8f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 14.4f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 14.4f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 14.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 14.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 14.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 14.8f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 14.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 14.4f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 14.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 14.4f, 1.55f );
+		glEnd();
+	//Escalon8
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 16.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 16.2f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 16.2f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 16.2f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 15.8f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 15.8f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 16.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 16.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 16.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 16.2f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 15.8f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 15.8f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 15.8f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 15.8f, 1.55f );
+		glEnd();
+	//Escalon9
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 17.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 17.6f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 17.6f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 17.6f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 17.2f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 17.2f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 17.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 17.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 17.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 17.6f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 17.2f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 17.2f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 17.2f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 17.2f, 1.55f );
+		glEnd();
+	//Escalon10
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 19.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 19.0f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 19.0f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 19.0f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 18.6f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 18.6f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 19.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 19.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 19.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 19.0f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 18.6f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 18.6f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 18.6f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 18.6f, 1.55f );
+		glEnd();
+	//Escalon11
+		//Cara delantera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,1.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 20.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 20.4f, 1.55f );
+		glEnd();
+		//Cara derecha
+		glBegin(GL_QUADS);
+		glNormal3f( 1.0f,0.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 20.4f, 1.55f );
+		glEnd();
+		//Cara izquierda
+		glBegin(GL_QUADS);
+		glNormal3f( -1.0f,0.0f,0.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 20.4f, 1.55f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 20.0f, 1.1f );
+		glEnd();
+		//Cara trasera
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,0.0f,-1.0f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -34.1f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -31.5f, 20.0f, 1.1f );
+		glEnd();
+		//Cara superior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f,1.0f,0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 20.4f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -31.5f, 20.4f, 1.55f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 20.4f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -34.1f, 20.4f, 1.1f );
+		glEnd();
+		//Cara inferior
+		glBegin(GL_QUADS);
+		glNormal3f( 0.0f, -1.0f, 0.0f );
+		glTexCoord2f(0.0f, 0.0f); glVertex3f( -34.1f, 20.0f, 1.55f );
+		glTexCoord2f(1.0f, 0.0f); glVertex3f( -34.1f, 20.0f, 1.1f );
+		glTexCoord2f(1.0f, 1.0f); glVertex3f( -31.5f, 20.0f, 1.1f );
+		glTexCoord2f(0.0f, 1.0f); glVertex3f( -31.5f, 20.0f, 1.55f );
+		glEnd();
+}
